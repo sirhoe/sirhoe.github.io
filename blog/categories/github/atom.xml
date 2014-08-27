@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[SIRHOE CODE]]></title>
-  <link href="http://sirhoe.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Github | SIRHOE CODE]]></title>
+  <link href="http://sirhoe.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
   <updated>2014-08-27T16:51:29+10:00</updated>
   <id>http://sirhoe.github.io/</id>
@@ -25,7 +25,7 @@
 
 <h1>What is Octopress?</h1>
 
-<p><img class="right" src="http://sirhoe.github.io/images/octopress.png" title="'Octopress Logo'" ></p>
+<p><img class="right" src="/images/octopress.png" title="&lsquo;Octopress Logo&rsquo;" ></p>
 
 <p>In its own words, Octopress is a blogging platform for hackers. Basically that means you will need to be a geek to know how to set it up. Challenge accepted!</p>
 
