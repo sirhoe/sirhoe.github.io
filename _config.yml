@@ -3,11 +3,11 @@
 # ----------------------- #
 
 url: http://sirhoe.github.io
-title: SIRHOE
+title: SIRHOE CODE
 subtitle: A developer's log
 author: Sir Hoe
 simple_search: https://www.google.com/search
-description:
+description: This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code.
 
 # Default date format is "ordinal" (resulting in "July 22nd 2007")
 # You can customize the format as defined in

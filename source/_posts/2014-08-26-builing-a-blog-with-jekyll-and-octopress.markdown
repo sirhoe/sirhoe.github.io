@@ -1,19 +1,25 @@
 ---
 layout: post
-title: "Building a blog with static HTML"
+title: "Building a blog with static pages"
 date: 2014-08-26 15:45:13 +1000
 comments: true
-categories: [Ruby, Portfolio] 
+categories: [Octopress, Github] 
 ---
-Recently, I was looking to start a portfolio site to showcase my development work. I was contemplated to use the usual wordpress blogging platform until I found out about the whole static page thing with Octopress via Github.
+Recently, I was looking to start a portfolio site to present my development work. I was contemplated to use the usual [Wordpress](http://www.wordpress.com) blogging platform until I found out about the whole static page thing with [Octopress](http://www.octopress.org) via [Github Pages](http://pages.github.com). Imagine your blog being versioned in a rock solid SVN such as github and hosted free, I am sold.
 
-What is Octopress?
+<!--more-->
 
-In its own words, Octopress introduce itself as a blogging platform for hackers. Basically that means you need to be a geek to know how to set it up. 
+#What is Octopress?
 
-{% img /images/octopress.png 'Octopress Logo' %}
+{% img right /images/octopress.png 'Octopress Logo' %}
 
-Actually, I first bumbed into Github Pages which sounds kind cool because you get to version your HTML pages and it will be hosted free (yay!). After playing around with it, I found out that Github Pages made use of Jekyll to generate the static HTMLs. More googling led me to another thing called Octopress, which is a platform built on top of Jekyll so I can use Octopress to generate Jekyll static content and have it uploaded and hosted on Github. Sounds like a plan!
+In its own words, Octopress is a blogging platform for hackers. Basically that means you will need to be a geek to know how to set it up. Challenge accepted!
+
+Follow the [setup instruction here](http://octopress.org/docs/setup/) to get it up and running. Generally, getting it to work in OSX is much easier than Windows due to OSX's underlying unix architecture. After that it is all about wrtting your post in Markdown syntax to have it generated and deployed.
+
+
+
+
 
 
 
