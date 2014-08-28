@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bitbucket | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/bitbucket/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-08-28T13:00:52+10:00</updated>
+  <updated>2014-08-28T16:27:58+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -18,9 +18,9 @@
     <link href="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress/"/>
     <updated>2014-08-28T12:37:46+10:00</updated>
     <id>http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress</id>
-    <content type="html"><![CDATA[<p>Default Octopress installation came with github support, as a widget-like plugin called &lsquo;aside&rsquo;. The aside plugin will list your repositores based on the account name you configured in Octopress&rsquo;s <em>_config.xml</em>.</p>
+    <content type="html"><![CDATA[<p>Default Octopress installation came with github support, as a widget-like plugin called &lsquo;aside&rsquo;. The aside plugin will list your github repositores based on the account name you configured in Octopress&rsquo;s <em>_config.xml</em>.</p>
 
-<p>Now I needed another one for Bitbucket and luckily I found <a href="https://github.com/izacus/octopress-bitbucket">plugin developed by Izacus</a>. The installation steps are clear and direct but the resulted Aside was ugly because it didnt include the necessary HTML <em>class</em> tag for my bootstrap css theme to work. Not a big deal, I got it fixed and the last thing I am going to do is contribute the changes back to the project.</p>
+<p>Now I needed another one for Bitbucket and luckily I found <a href="https://github.com/izacus/octopress-bitbucket">plugin developed by Izacus</a>. The installation steps are clear and direct but the resulted Aside was ugly because it didnt include the necessary HTML <em>class</em> tag for my bootstrap css theme to work. Not a big deal, I got it fixed and the last thing I am going to do is contribute the changes back to the project. If you installed the plugin and faced similar issue, feel free to clone from my fork while the <a href="https://github.com/izacus/octopress-bitbucket/pull/3">pull request</a> is pending review.</p>
 ]]></content>
   </entry>
   
