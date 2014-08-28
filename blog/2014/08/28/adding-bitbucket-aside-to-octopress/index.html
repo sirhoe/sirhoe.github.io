@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Building a Blog With Static Pages - SIRHOE CODE</title>
+  <title>Adding Bitbucket Aside to Octopress - SIRHOE CODE</title>
   <meta name="author" content="Sir Hoe">
 
   
@@ -14,15 +14,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/08/26/builing-a-blog-with-jekyll-and-octopress">
+  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="SIRHOE CODE" type="application/atom+xml">
 
   <!-- http://opengraphprotocol.org/ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/08/26/builing-a-blog-with-jekyll-and-octopress">
-  <meta property="og:title" content="Building a Blog With Static Pages - SIRHOE CODE">
+  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress">
+  <meta property="og:title" content="Adding Bitbucket Aside to Octopress - SIRHOE CODE">
   
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
@@ -111,31 +111,22 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-26T15:45:13+10:00"  data-updated="true" itemprop="datePublished dateCreated">26 Aug 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-28T12:37:46+10:00"  data-updated="true" itemprop="datePublished dateCreated">28 Aug 2014</time>
         
       </p>
     
     
     <h1 class="entry-title" itemprop="name headline">
-        Building a Blog With Static Pages
+        Adding Bitbucket Aside to Octopress
         
     </h1>
     
   </header>
 
 
-<div class="entry-content clearfix" itemprop="articleBody description"><p>Recently, I was looking to start a portfolio site to present my development work. I was contemplated to use the usual <a href="http://www.wordpress.com">Wordpress</a> blogging platform until I found out about the whole static page thing with <a href="http://www.octopress.org">Octopress</a> via <a href="http://pages.github.com">Github Pages</a>. Imagine your blog being versioned in a rock solid SVN such as github and hosted free, I am sold.</p>
+<div class="entry-content clearfix" itemprop="articleBody description"><p>Default Octopress installation came with github support, as a widget-like plugin called &lsquo;aside&rsquo;. The aside plugin will list your repositores based on the account name you configured in Octopress&rsquo;s <em>_config.xml</em>.</p>
 
-<!--more-->
-
-
-<h1>What is Octopress?</h1>
-
-<p><img class="right" src="/images/octopress.png" title="'Octopress Logo'" ></p>
-
-<p>In its own words, Octopress is a blogging platform for hackers. Basically that means you will need to be a geek to know how to set it up. Challenge accepted!</p>
-
-<p>Follow the <a href="http://octopress.org/docs/setup/">setup instruction here</a> to get it up and running. Generally, getting it to work in OSX is much easier than Windows due to OSX&rsquo;s underlying unix architecture. After that it is all about wrtting your post in Markdown syntax to have it generated and deployed.</p>
+<p>Now I needed another one for Bitbucket and luckily I found <a href="https://github.com/izacus/octopress-bitbucket">plugin developed by Izacus</a>. The installation steps are clear and direct but the resulted Aside was ugly because it didnt include the necessary HTML <em>class</em> tag for my bootstrap css theme to work. Not a big deal, I got it fixed and the last thing I am going to do is contribute the changes back to the project.</p>
 </div>
 
 
@@ -159,13 +150,13 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-26T15:45:13+10:00"  data-updated="true" itemprop="datePublished dateCreated">26 Aug 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-28T12:37:46+10:00"  data-updated="true" itemprop="datePublished dateCreated">28 Aug 2014</time>
           
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/github/'>github</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
+    <a class='category' href='/blog/categories/bitbucket/'>bitbucket</a>, <a class='category' href='/blog/categories/octopress/'>octopress</a>
   
 </span>
 
@@ -174,13 +165,20 @@
         
           <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/08/26/builing-a-blog-with-jekyll-and-octopress/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/08/26/builing-a-blog-with-jekyll-and-octopress/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress/" >Tweet</a>
   
   
   
 </div>
 
         
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/08/26/building-a-blog-with%20static-pages/" title="Previous Post: Building a blog with static pages">&laquo; Building a blog with static pages</a></li>
+            
+            
+          </ul>
         
       </footer>
     </article>
@@ -197,7 +195,9 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item active" href="/blog/2014/08/26/builing-a-blog-with-jekyll-and-octopress/">Building a Blog With Static Pages</a>
+    <a class="list-group-item active" href="/blog/2014/08/28/adding-bitbucket-aside-to-octopress/">Adding Bitbucket Aside to Octopress</a>
+    
+    <a class="list-group-item " href="/blog/2014/08/26/building-a-blog-with%20static-pages/">Building a Blog With Static Pages</a>
     
   </div>
 </section>
