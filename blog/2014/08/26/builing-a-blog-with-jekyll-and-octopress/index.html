@@ -28,7 +28,6 @@
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
 
 <link href="/assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="/assets/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet" type="text/css">
 
 
   
@@ -58,6 +57,9 @@
                     <a rel="index" href="/">Blog</a>
                 </li>
                 <li >
+                    <a href="/about">About</a>
+                </li>
+		<li >
                     <a href="/blog/archives">Archives</a>
                 </li>
             </ul>
@@ -231,6 +233,41 @@
     });
   </script>
   <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+<section class="panel panel-default clearfix">
+  <div class="panel-heading">
+    <h3 class="panel-title">BitBucket Repos</h3>
+  </div>
+  <div class="list-group" id="bb_repos">
+    <p class="loading">Status updating…</p>
+  </div>
+  
+    <div class="gh-profile-link pull-right text-muted">
+      <a href="https://bitbucket.org/sirhoe">@sirhoe</a> on BitBucket
+    </div>
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        bitbucket.showRepos({
+            user: 'sirhoe',
+            show_count: '1',   
+            load_count: '1',   
+            skip_forks: true,
+            target: '#bb_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/bitbucket.js" type="text/javascript"> </script>
 </section>
 
 
