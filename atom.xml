@@ -4,7 +4,7 @@
   <title><![CDATA[SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-08-29T12:45:31+10:00</updated>
+  <updated>2014-08-29T16:51:02+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -12,6 +12,41 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Creating a MVC Blog Engine Part 1]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/"/>
+    <updated>2014-08-29T16:19:49+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/08/29/creating-a-mvc-blog-engine-part-1</id>
+    <content type="html"><![CDATA[<p>I have been working on a ASP.NET MVC pet project of my own for a while, following tutorial from <a href="http://www.prideparrot.com/blog/archive/2012/12/how_to_create_a_simple_blog_part1">PrideParriot</a> to build a blog engine from scratch. Ultimately, I intend to divert from the tutorial to add more functionalities as I get more comfortable. <!--more--></p>
+
+<p>For the time being, I have completed the user stores below for the blog engine:</p>
+
+<ul>
+<li>Story #1 - Display the latest blog posts</li>
+<li>Story #2 - Display posts based on category</li>
+<li>Story #3 - Display posts based on tag</li>
+<li>Story #4 - Search posts</li>
+<li>Story #5 - Display the details of a single post</li>
+<li>Story #6 - Display the post categories in a widget</li>
+<li>Story #7 - Display the post tags in a widget</li>
+<li>Story #8 - Display the latest posts in a widget</li>
+</ul>
+
+
+<p>More work needs to be done!</p>
+
+<p><img class="right" src="http://sirhoe.github.io/images/mvcblog_screenshot.png" title="'Blog screenshot'" > <img class="right" src="http://sirhoe.github.io/images/mvcblog_code.png" title="'Code'" ></p>
+
+<h3>Code hosted in Bitbucket</h3>
+
+<p>The <a href="https://bitbucket.org/sirhoe/blog-engine">source code is hosted in Bitbucket</a> and you are free to fork it but additonal contributor is not required at this moment as I want to go through the tutorial myself.</p>
+
+<h3>Have a question?</h3>
+
+<p>if you faced any issue following the tutorial, I will more than happy to disucss and help.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Adding Bitbucket Aside to Octopress]]></title>
