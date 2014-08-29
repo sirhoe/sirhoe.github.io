@@ -1,0 +1,14 @@
+{% if site.gravatar_email %}
+<section class="panel panel-default clearfix">
+	<div class="panel-heading">
+    	<h3 class="panel-title">About Sir Hoe (neo)</h3>
+	</div>
+	<div style="padding:5px">
+		<img hspace="5px" align="left" src="{% gravatar_image %}" alt="Gravatar of {{ site.author}} " title="Gravatar of {{ site.author }}" />
+		<p>I am a developer experienced in req analysis, design and develoing distributed, 
+		database-driven solutions with desktop and web interface </p>
+		<p>Have a question? Drop me a message.</p>
+		
+	</div>
+</section>
+{% endif %}
