@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: String | SIRHOE CODE]]></title>
+  <link href="http://sirhoe.github.io/blog/categories/string/atom.xml" rel="self"/>
+  <link href="http://sirhoe.github.io/"/>
+  <updated>2014-09-02T21:57:51+10:00</updated>
+  <id>http://sirhoe.github.io/</id>
+  <author>
+    <name><![CDATA[Sir Hoe]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Best Practices to Manipulate String in C#]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/"/>
+    <updated>2014-09-02T21:31:36+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number</id>
+    <content type="html"><![CDATA[<p>Manipulating strings is probably the most performed task in programming yet most developer are not doing it efficiently. Developers tend to use the &lsquo;+&rsquo; operand to concatenate strings because it is an easy syntax and they are not aware of better options.</p>
+
+<!--more-->
+
+
+<h3>In C#, use System.Text.StringBuilder</h3>
+
+<p>Make it a habit to use StringBuilder to manipulate strings because the class is designed to be compiler-optimised and it will avoid memory allocation where possible.</p>
+
+<h3>String is immutable</h3>
+
+<p>Do you know that <em>String</em> type is immutable, which means that it cannot be changed after instantiated. Every time you modify an existing string, a new string is created. Now imagine if you have a loop which append to a string, the .NET runtime have to allocate memory for a new string every time the string is modified. Memory allocation is an expensive operation.</p>
+
+<h3>StringBuilder is mutable and optimised</h3>
+
+<p>To overcome the resource penalty when manipulating string during runtime, StringBuilder is introduced. It&rsquo;s operation is compiler optimised and mutable where possible.</p>
+
+<h3>When to use StringBuilder?</h3>
+
+<p>Understanding the need for easy syntax and readability, I would suggest using StringBuilder whenever you are manipulating string in a loop and performance matters.</p>
+
+<h3>For more reading</h3>
+
+<p><a href="http://msdn.microsoft.com/en-us/library/2839d5h5(v=vs.110">Namespace System.Text.StringBuilder</a>.aspx)</p>
+
+<p><a href="http://www.dotnetperls.com/stringbuilder">StringBuilder Benchmark</a></p>
+]]></content>
+  </entry>
+  
+</feed>

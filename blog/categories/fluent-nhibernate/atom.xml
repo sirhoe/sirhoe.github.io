@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Nhibernate | SIRHOE CODE]]></title>
-  <link href="http://sirhoe.github.io/blog/categories/nhibernate/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Fluent Nhibernate | SIRHOE CODE]]></title>
+  <link href="http://sirhoe.github.io/blog/categories/fluent-nhibernate/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-02T12:11:29+10:00</updated>
+  <updated>2014-09-02T21:57:51+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[FluentNHibernate: One-To-Many Mapping]]></title>
+    <title type="html"><![CDATA[Fluent NHibernate: One-To-Many Mapping]]></title>
     <link href="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/"/>
     <updated>2014-09-02T10:15:09+10:00</updated>
     <id>http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping</id>
