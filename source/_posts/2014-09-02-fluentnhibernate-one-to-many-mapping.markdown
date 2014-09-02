@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "FluentNHibernate: One-To-Many Mapping"
+title: "Fluent NHibernate: One-To-Many Mapping"
 date: 2014-09-02 10:15:09 +1000
 comments: true
-categories: [NHibernate, C#]
+categories: [Fluent NHibernate, C#]
 ---
 
 One of the most common NHibernate mapping used is *one-to-many*, which is slightly more complex than the straight up *one-to-one*. There are a few things to take note of when we deal with such mapping especially when using FluentNHibernate.
