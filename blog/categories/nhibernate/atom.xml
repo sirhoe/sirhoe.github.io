@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[SIRHOE CODE]]></title>
-  <link href="http://sirhoe.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Nhibernate | SIRHOE CODE]]></title>
+  <link href="http://sirhoe.github.io/blog/categories/nhibernate/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
   <updated>2014-09-02T12:11:29+10:00</updated>
   <id>http://sirhoe.github.io/</id>
@@ -29,7 +29,7 @@
 
 <p>We are going to use a simple blog database schema, with a <em>Post</em> and <em>Category</em> tale. In this exercise, a <em>post</em> can only have one <em>category</em> while a <em>category</em> can be applied to many <em>post</em>.</p>
 
-<p><img src="http://sirhoe.github.io/images/one-many-ERD.jpg" title="'one category many post'" ></p>
+<p><img src="/images/one-many-ERD.jpg" title="&lsquo;one category many post&rsquo;" ></p>
 
 <p>The diagram above is intentionally left incomplete without the datatype and other contraints so that we can focus on the relationship.</p>
 
@@ -108,72 +108,6 @@ public class Category    {
 <h3>Have a question?</h3>
 
 <p>Feel free to leave a comment or email and I will get back to you.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Creating a MVC Blog Engine Part 1]]></title>
-    <link href="http://sirhoe.github.io/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/"/>
-    <updated>2014-08-29T16:19:49+10:00</updated>
-    <id>http://sirhoe.github.io/blog/2014/08/29/creating-a-mvc-blog-engine-part-1</id>
-    <content type="html"><![CDATA[<p>I have been working on a ASP.NET MVC pet project of my own for a while, following tutorial from <a href="http://www.prideparrot.com/blog/archive/2012/12/how_to_create_a_simple_blog_part1">PrideParriot</a> to build a blog engine from scratch. Ultimately, I intend to divert from the tutorial to add more functionalities as I get more comfortable. <!--more--></p>
-
-<p>For the time being, I have completed the user stores below for the blog engine:</p>
-
-<ul>
-<li>Story #1 - Display the latest blog posts</li>
-<li>Story #2 - Display posts based on category</li>
-<li>Story #3 - Display posts based on tag</li>
-<li>Story #4 - Search posts</li>
-<li>Story #5 - Display the details of a single post</li>
-<li>Story #6 - Display the post categories in a widget</li>
-<li>Story #7 - Display the post tags in a widget</li>
-<li>Story #8 - Display the latest posts in a widget</li>
-</ul>
-
-
-<p>More work needs to be done!</p>
-
-<p><img class="right" src="http://sirhoe.github.io/images/mvcblog_screenshot.png" title="'Blog screenshot'" > <img class="right" src="http://sirhoe.github.io/images/mvcblog_code.png" title="'Code'" ></p>
-
-<h3>Code hosted in Bitbucket</h3>
-
-<p>The <a href="https://bitbucket.org/sirhoe/blog-engine">source code is hosted in Bitbucket</a> and you are free to fork it but additonal contributor is not required at this moment as I want to go through the tutorial myself.</p>
-
-<h3>Have a question?</h3>
-
-<p>if you faced any issue following the tutorial, I will more than happy to disucss and help.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Adding Bitbucket Aside to Octopress]]></title>
-    <link href="http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress/"/>
-    <updated>2014-08-28T12:37:46+10:00</updated>
-    <id>http://sirhoe.github.io/blog/2014/08/28/adding-bitbucket-aside-to-octopress</id>
-    <content type="html"><![CDATA[<p>Default Octopress installation came with github support, as a widget-like plugin called &lsquo;aside&rsquo;. The aside plugin will list your github repositores based on the account name you configured in Octopress&rsquo;s <em>_config.xml</em>.</p>
-
-<p>Now I needed another one for Bitbucket and luckily I found <a href="https://github.com/izacus/octopress-bitbucket">plugin developed by Izacus</a>. The installation steps are clear and direct but the resulted Aside was ugly because it didnt include the necessary HTML <em>class</em> tag for my bootstrap css theme to work. Not a big deal, I got it fixed and the last thing I am going to do is contribute the changes back to the project. If you installed the plugin and faced similar issue, feel free to clone from my fork while the <a href="https://github.com/izacus/octopress-bitbucket/pull/3">pull request</a> is pending review.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Building a Blog With Static Pages]]></title>
-    <link href="http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with%20static-pages/"/>
-    <updated>2014-08-26T15:45:13+10:00</updated>
-    <id>http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with static-pages</id>
-    <content type="html"><![CDATA[<p>Recently, I was looking to start a portfolio site to present my development work. I was contemplated to use the usual <a href="http://www.wordpress.com">Wordpress</a> blogging platform until I found out about the whole static page thing with <a href="http://www.octopress.org">Octopress</a> via <a href="http://pages.github.com">Github Pages</a>. Imagine your blog being versioned in a rock solid SVN such as github and hosted free, I am sold.</p>
-
-<!--more-->
-
-
-<h1>What is Octopress?</h1>
-
-<p><img class="right" src="http://sirhoe.github.io/images/octopress.png" title="'Octopress Logo'" ></p>
-
-<p>In its own words, Octopress is a blogging platform for hackers. Basically that means you will need to be a geek to know how to set it up. Challenge accepted!</p>
-
-<p>Follow the <a href="http://octopress.org/docs/setup/">setup instruction here</a> to get it up and running. Generally, getting it to work in OSX is much easier than Windows due to OSX&rsquo;s underlying unix architecture. After that it is all about wrtting your post in Markdown syntax to have it generated and deployed.</p>
 ]]></content>
   </entry>
   

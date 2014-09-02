@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C# | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/c-number/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-08-29T16:51:02+10:00</updated>
+  <updated>2014-09-02T12:11:29+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -12,6 +12,104 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FluentNHibernate: One-To-Many Mapping]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/"/>
+    <updated>2014-09-02T10:15:09+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping</id>
+    <content type="html"><![CDATA[<p>One of the most common NHibernate mapping used is <em>one-to-many</em>, which is slightly more complex than the straight up <em>one-to-one</em>. There are a few things to take note of when we deal with such mapping especially when using FluentNHibernate.</p>
+
+<p>For this demo, I am going to use FluentNHibernate 1.4 and NHibernate 3.3, particulary the <a href="https://github.com/jagregory/fluent-nhibernate/wiki/Fluent-mapping"><em>FluentNHibernate.Mapping.Classmap</em></a> class</p>
+
+<!--more-->
+
+
+<h3>The database schema</h3>
+
+<p>We are going to use a simple blog database schema, with a <em>Post</em> and <em>Category</em> tale. In this exercise, a <em>post</em> can only have one <em>category</em> while a <em>category</em> can be applied to many <em>post</em>.</p>
+
+<p><img src="/images/one-many-ERD.jpg" title="&lsquo;one category many post&rsquo;" ></p>
+
+<p>The diagram above is intentionally left incomplete without the datatype and other contraints so that we can focus on the relationship.</p>
+
+<p>In order to represent such relationship in C# FluentNHibernate code, we first have to create the entities classes, <em>Post</em> and <em>Category</em>.</p>
+
+<pre><code>public class Post    {
+    public virtual int Id { get; set; }
+    public virtual string Title { get; set; }
+    public virtual Category Category { get; set; }    }
+
+public class Category    {
+    public virtual int Id { get; set; }
+    public virtual string Name { get; set; }
+    public virtual IList&lt;Post&gt; Post { get; set; }    }
+</code></pre>
+
+<p>These are just plain old C# class with no relationship yet, that comes later. Even if you are not using Fluent or NHibernate you would still create such classes to store the data you fetch from the database. This entity classes are required no matter which ORM you use or even if you do not use one.</p>
+
+<p>After that, we will create the mapping classes required by FluentNHibernate to represent the relationship in the database. There will be two mapping classes, one for earch entity class.</p>
+
+<pre><code>public class PostMap : ClassMap&lt;Post&gt;    {
+    public PostMap()        {
+        Id(x =&gt; x.Id); //#1
+
+        Map(x =&gt; x.Title) //#2
+            .Length(5000)
+            .Not.Nullable();
+
+        References(x =&gt; x.Category) //#3
+            .Column("Category");
+    } 
+}
+</code></pre>
+
+<p><em>ClassMap</em> is the basic foundation of all your FluentNHiberate mapping and you will derive from this to map anything.</p>
+
+<h3>Rule 1: ClassMap it in the Contructor</h3>
+
+<p>As you can see from the <em>PostMap</em> class above, all the mappings must be in the Contrsuctor. The mapping says:</p>
+
+<ol>
+<li>Table <em>Post</em> Primary key, also known as Id, is mapped to the Id method.</li>
+<li>Method <em>Ttitle</em> maximum length is 5000 and it cannot be null. Since the method returns a <em>String</em>, it will be automatically mapped to a <em>nvarchar</em> column</li>
+<li>Method <em>Category</em> is a Foreign Key reference tht is mapped to a column named <em>Category</em>. From <em>Post</em> table point of view, it is a one-to-one mapping to <em>Category</em></li>
+</ol>
+
+
+<p>Next we will take a look at the <em>CategoryMap</em></p>
+
+<pre><code>public class CategoryMap : ClassMap&lt;Category&gt;
+{
+    public CategoryMap()
+    {
+        Id(x =&gt; x.Id);  //#1 
+
+        Map(x =&gt; x.Name)  //#2
+            .Length(50) 
+            .Not.Nullable(); 
+
+        HasMany(x =&gt; x.Post) //#3 
+            .Inverse() 
+            .Cascade.All()
+            .KeyColumn("Category"); 
+        }
+    }
+</code></pre>
+
+<p>The #1 and #2 have been explained earlier whereas #3 shows table <em>Category</em> has a <em>Post</em> method. The <em>Inverse</em> method dictates that the relationship must be traced from the other side which is the <em>Post</em> table. The <em>Cascade.All</em> dictates cascade on delete/update, which means leave no orphan. The <em>KeyColumn</em> is just telling FluentNHibernate to look at that column in <em>Post</em> table when tracing the relationship from inverse.</p>
+
+<h3>Rule 2: Inverse at the Many side of the relationship.</h3>
+
+<p>Do not inverse both side unless you know what you are doing. Refer to <a href="http://notherdev.blogspot.com.au/2012/04/nhibernates-inverse-what-does-it-really.html">this excellent exlain</a> for more detail.</p>
+
+<p>Finally with the entity class and mapping completed, we can start working with <em>ISessionFactory</em> to configure the databse. I will cover that in another post.</p>
+
+<h3>Have a question?</h3>
+
+<p>Feel free to leave a comment or email and I will get back to you.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Creating a MVC Blog Engine Part 1]]></title>

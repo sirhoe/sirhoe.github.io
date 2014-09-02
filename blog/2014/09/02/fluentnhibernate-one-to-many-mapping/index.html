@@ -2,10 +2,10 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Category: Mvcblog - SIRHOE CODE</title>
+  <title>FluentNHibernate: One-To-Many Mapping - SIRHOE CODE</title>
   <meta name="author" content="Sir Hoe">
 
-  <meta name="description" content="Category: mvcblog">
+  
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -14,16 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sirhoe.github.io/blog/categories/mvcblog">
+  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="SIRHOE CODE" type="application/atom+xml">
 
   <!-- http://opengraphprotocol.org/ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sirhoe.github.io/blog/categories/mvcblog">
-  <meta property="og:title" content="Category: Mvcblog - SIRHOE CODE">
-  <meta property="og:description" content="Category: mvcblog">
+  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping">
+  <meta property="og:title" content="FluentNHibernate: One-To-Many Mapping - SIRHOE CODE">
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
 
@@ -64,13 +64,13 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li >
+                <li class="active">
                     <a rel="index" href="/">Blog</a>
                 </li>
                 <li >
                     <a href="/about">About</a>
                 </li>
-		<li class="active">
+		<li >
                     <a href="/blog/archives">Archives</a>
                 </li>
             </ul>
@@ -100,74 +100,201 @@
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
-    <article role="article">
+  <div class="page-content col-md-9" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="SIRHOE CODE" />
+    <meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
+    <meta itemprop="url" content="http://sirhoe.github.io" />
+    <article class="hentry" role="article" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
       
-        <header class="page-header">
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T10:15:09+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title" itemprop="name headline">
+        FluentNHibernate: One-To-Many Mapping
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix" itemprop="articleBody description"><p>One of the most common NHibernate mapping used is <em>one-to-many</em>, which is slightly more complex than the straight up <em>one-to-one</em>. There are a few things to take note of when we deal with such mapping especially when using FluentNHibernate.</p>
+
+<p>For this demo, I am going to use FluentNHibernate 1.4 and NHibernate 3.3, particulary the <a href="https://github.com/jagregory/fluent-nhibernate/wiki/Fluent-mapping"><em>FluentNHibernate.Mapping.Classmap</em></a> class</p>
+
+<!--more-->
+
+
+<h3>The database schema</h3>
+
+<p>We are going to use a simple blog database schema, with a <em>Post</em> and <em>Category</em> tale. In this exercise, a <em>post</em> can only have one <em>category</em> while a <em>category</em> can be applied to many <em>post</em>.</p>
+
+<p><img src="/images/one-many-ERD.jpg" title="'one category many post'" ></p>
+
+<p>The diagram above is intentionally left incomplete without the datatype and other contraints so that we can focus on the relationship.</p>
+
+<p>In order to represent such relationship in C# FluentNHibernate code, we first have to create the entities classes, <em>Post</em> and <em>Category</em>.</p>
+
+<pre><code>public class Post    {
+    public virtual int Id { get; set; }
+    public virtual string Title { get; set; }
+    public virtual Category Category { get; set; }    }
+
+public class Category    {
+    public virtual int Id { get; set; }
+    public virtual string Name { get; set; }
+    public virtual IList&lt;Post&gt; Post { get; set; }    }
+</code></pre>
+
+<p>These are just plain old C# class with no relationship yet, that comes later. Even if you are not using Fluent or NHibernate you would still create such classes to store the data you fetch from the database. This entity classes are required no matter which ORM you use or even if you do not use one.</p>
+
+<p>After that, we will create the mapping classes required by FluentNHibernate to represent the relationship in the database. There will be two mapping classes, one for earch entity class.</p>
+
+<pre><code>public class PostMap : ClassMap&lt;Post&gt;    {
+    public PostMap()        {
+        Id(x =&gt; x.Id); //#1
+
+        Map(x =&gt; x.Title) //#2
+            .Length(5000)
+            .Not.Nullable();
+
+        References(x =&gt; x.Category) //#3
+            .Column("Category");
+    } 
+}
+</code></pre>
+
+<p><em>ClassMap</em> is the basic foundation of all your FluentNHiberate mapping and you will derive from this to map anything.</p>
+
+<h3>Rule 1: ClassMap it in the Contructor</h3>
+
+<p>As you can see from the <em>PostMap</em> class above, all the mappings must be in the Contrsuctor. The mapping says:</p>
+
+<ol>
+<li>Table <em>Post</em> Primary key, also known as Id, is mapped to the Id method.</li>
+<li>Method <em>Ttitle</em> maximum length is 5000 and it cannot be null. Since the method returns a <em>String</em>, it will be automatically mapped to a <em>nvarchar</em> column</li>
+<li>Method <em>Category</em> is a Foreign Key reference tht is mapped to a column named <em>Category</em>. From <em>Post</em> table point of view, it is a one-to-one mapping to <em>Category</em></li>
+</ol>
+
+
+<p>Next we will take a look at the <em>CategoryMap</em></p>
+
+<pre><code>public class CategoryMap : ClassMap&lt;Category&gt;
+{
+    public CategoryMap()
+    {
+        Id(x =&gt; x.Id);  //#1 
+
+        Map(x =&gt; x.Name)  //#2
+            .Length(50) 
+            .Not.Nullable(); 
+
+        HasMany(x =&gt; x.Post) //#3 
+            .Inverse() 
+            .Cascade.All()
+            .KeyColumn("Category"); 
+        }
+    }
+</code></pre>
+
+<p>The #1 and #2 have been explained earlier whereas #3 shows table <em>Category</em> has a <em>Post</em> method. The <em>Inverse</em> method dictates that the relationship must be traced from the other side which is the <em>Post</em> table. The <em>Cascade.All</em> dictates cascade on delete/update, which means leave no orphan. The <em>KeyColumn</em> is just telling FluentNHibernate to look at that column in <em>Post</em> table when tracing the relationship from inverse.</p>
+
+<h3>Rule 2: Inverse at the Many side of the relationship.</h3>
+
+<p>Do not inverse both side unless you know what you are doing. Refer to <a href="http://notherdev.blogspot.com.au/2012/04/nhibernates-inverse-what-does-it-really.html">this excellent exlain</a> for more detail.</p>
+
+<p>Finally with the entity class and mapping completed, we can start working with <em>ISessionFactory</em> to configure the databse. I will cover that in another post.</p>
+
+<h3>Have a question?</h3>
+
+<p>Feel free to leave a comment or email and I will get back to you.</p>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
           
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">Posted by <span class="fn" itemprop="name">Sir Hoe</span></span>
+
           
-            <h1 class="entry-title">
-              Category: Mvcblog
-              
-            </h1>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T10:15:09+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
           
-        </header>
-      
-      <div class="entry-content">
-        <div id="blog-archives" class="category" itemscope itemtype="http://schema.org/Blog">
-<meta itemprop="name" content="SIRHOE CODE" />
-<meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
-<meta itemprop="url" content="http://sirhoe.github.io" />
-
-
-
-  
-  <h2>2014</h2>
-
-<article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-  
-<h1 itemprop="name headline"><a href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/" itemprop="url">Creating a MVC Blog Engine Part 1</a></h1>
-<p class="meta text-muted">
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-29T16:19:49+10:00"  data-updated="true" itemprop="datePublished dateCreated">29 Aug 2014</time>
-  
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/mvc/'>mvc</a>, <a class='category' href='/blog/categories/mvcblog/'>mvcblog</a>, <a class='category' href='/blog/categories/project/'>project</a>
+    <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/nhibernate/'>nhibernate</a>
   
 </span>
 
 
-</p>
-
-</article>
-
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
 
-      </div>
-      
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/" title="Previous Post: Creating a MVC Blog engine Part 1">&laquo; Creating a MVC Blog engine Part 1</a></li>
+            
+            
+          </ul>
+        
+      </footer>
     </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
 
   
-    <aside class="sidebar col-md-3">
+  <aside class="sidebar col-md-3">
+    
       
-        
 <section class="panel panel-default clearfix">
 	<div class="panel-heading">
     	<h3 class="panel-title">About Sir Hoe (neo)</h3>
@@ -187,7 +314,7 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">FluentNHibernate: One-To-Many Mapping</a>
+    <a class="list-group-item active" href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">FluentNHibernate: One-To-Many Mapping</a>
     
     <a class="list-group-item " href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/">Creating a MVC Blog Engine Part 1</a>
     
@@ -271,8 +398,8 @@
 
 
 
-      
-    </aside>
+    
+  </aside>
   
 </div>
 
@@ -296,7 +423,10 @@
       var disqus_shortname = 'sirhoecode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/';
+        var disqus_url = 'http://sirhoe.github.io/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
