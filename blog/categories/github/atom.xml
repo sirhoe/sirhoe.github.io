@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Github | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/github/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-02T21:57:51+10:00</updated>
+  <updated>2014-09-02T23:58:27+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Building a Blog With Static Pages]]></title>
-    <link href="http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with%20static-pages/"/>
+    <link href="http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with-static-pages/"/>
     <updated>2014-08-26T15:45:13+10:00</updated>
-    <id>http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with static-pages</id>
+    <id>http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with-static-pages</id>
     <content type="html"><![CDATA[<p>Recently, I was looking to start a portfolio site to present my development work. I was contemplated to use the usual <a href="http://www.wordpress.com">Wordpress</a> blogging platform until I found out about the whole static page thing with <a href="http://www.octopress.org">Octopress</a> via <a href="http://pages.github.com">Github Pages</a>. Imagine your blog being versioned in a rock solid SVN such as github and hosted free, I am sold.</p>
 
 <!--more-->

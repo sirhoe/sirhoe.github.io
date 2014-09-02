@@ -27,7 +27,7 @@
   </url>
   
   <url>
-    <loc>http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with%20static-pages/</loc>
+    <loc>http://sirhoe.github.io/blog/2014/08/26/building-a-blog-with-static-pages/</loc>
     <lastmod>2014-08-26T15:45:13+10:00</lastmod>
     <priority>0.8</priority>
   </url>
@@ -35,21 +35,21 @@
   
   <url>
     <loc>http://sirhoe.github.io/blog/archives/</loc>
-    <lastmod>2014-09-02T21:57:51+10:00</lastmod>
+    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://sirhoe.github.io/</loc>
-    <lastmod>2014-09-02T21:57:51+10:00</lastmod>
+    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://sirhoe.github.io/about/</loc>
-    <lastmod>2014-09-02T21:57:51+10:00</lastmod>
+    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
