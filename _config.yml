@@ -102,10 +102,10 @@ disqus_short_name: sirhoecode
 disqus_show_comment_count: false
 
 # Google Analytics
-google_analytics_tracking_id:
+google_analytics_tracking_id: UA-176914-1
 
 # Facebook Like
-facebook_like: false
+facebook_like: true
 
 # Gravatar
 gravatar_email: sirhoe@gmail.com
