@@ -126,6 +126,51 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-03T16:49:44+10:00"  data-updated="true" itemprop="datePublished dateCreated">03 Sep 2014</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title" itemprop="name headline"><a href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" itemprop="url">Clustered Index Issue When Migrating Database to Azure</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p><img class="left" src="/images/SQL-import-export.png" title="'Tool from MS SQL 2014' 250 80" ></p>
+
+<p>When I was migrating my development database with mock data to Azure to setup my portfolio site, I faced a migration issue while using the <em>SQL Import and Export Wizard</em> provided by my MSSQL Server 2014 installation. When I ran the wizard, it failed with a message complaining that Azure do not allow insertion in table which is created without a clustered index. The fix is obivious here, I will need to alter the table creation script, each one of them.</p>
+
+<p>Thats alot of manual work for some mock data.</p>
+
+<p>Luckily for me, I found a tool called <em>SQL Database Migration Wizard</em> which will analyze your database for Azure compatibility and in my case, automatically suggest adding Clustered Index to my tables while they are moved to the Azure cloud. Fantastic!</p>
+
+<p>I would highly recommend this tool for development purpose and do be extra careful if you are moving production data. <a href="http://sqlazuremw.codeplex.com">Here is the link to the tool.</a></p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T21:31:36+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
         
       </p>
@@ -350,6 +395,8 @@
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
+    
     <a class="list-group-item " href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
     
     <a class="list-group-item " href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">Fluent NHibernate: One-To-Many Mapping</a>
@@ -357,8 +404,6 @@
     <a class="list-group-item " href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/">Creating a MVC Blog Engine Part 1</a>
     
     <a class="list-group-item " href="/blog/2014/08/28/adding-bitbucket-aside-to-octopress/">Adding Bitbucket Aside to Octopress</a>
-    
-    <a class="list-group-item " href="/blog/2014/08/26/building-a-blog-with-static-pages/">Building a Blog With Static Pages</a>
     
   </div>
 </section>

@@ -2,10 +2,10 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Category: C# - SIRHOE CODE</title>
+  <title>Clustered Index Issue When Migrating Database to Azure - SIRHOE CODE</title>
   <meta name="author" content="Sir Hoe">
 
-  <meta name="description" content="Category: c#">
+  
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -14,16 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sirhoe.github.io/blog/categories/c-number">
+  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="SIRHOE CODE" type="application/atom+xml">
 
   <!-- http://opengraphprotocol.org/ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sirhoe.github.io/blog/categories/c-number">
-  <meta property="og:title" content="Category: C# - SIRHOE CODE">
-  <meta property="og:description" content="Category: c#">
+  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure">
+  <meta property="og:title" content="Clustered Index Issue When Migrating Database to Azure - SIRHOE CODE">
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
@@ -64,13 +64,13 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li >
+                <li class="active">
                     <a rel="index" href="/">Blog</a>
                 </li>
                 <li >
                     <a href="/about">About</a>
                 </li>
-		<li class="active">
+		<li >
                     <a href="/blog/archives">Archives</a>
                 </li>
             </ul>
@@ -100,35 +100,16 @@
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
-    <article role="article">
+  <div class="page-content col-md-9" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="SIRHOE CODE" />
+    <meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
+    <meta itemprop="url" content="http://sirhoe.github.io" />
+    <article class="hentry" role="article" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
       
-        <header class="page-header">
-          
-          
-            <h1 class="entry-title">
-              Category: C#
-              
-            </h1>
-          
-        </header>
-      
-      <div class="entry-content">
-        <div id="blog-archives" class="category" itemscope itemtype="http://schema.org/Blog">
-<meta itemprop="name" content="SIRHOE CODE" />
-<meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
-<meta itemprop="url" content="http://sirhoe.github.io" />
-
-
-
-  
-  <h2>2014</h2>
-
-<article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-  
-<h1 itemprop="name headline"><a href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/" itemprop="url">Best Practices to Manipulate String in C#</a></h1>
-<p class="meta text-muted">
-  
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
 
 
 
@@ -141,101 +122,98 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T21:31:36+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
-  
-
-<span class="glyphicon glyphicon-tags"></span>&nbsp;
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/best-practice/'>best practice</a>, <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/string/'>string</a>
-  
-</span>
-
-
-</p>
-
-</article>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-03T16:49:44+10:00"  data-updated="true" itemprop="datePublished dateCreated">03 Sep 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title" itemprop="name headline">
+        Clustered Index Issue When Migrating Database to Azure
+        
+    </h1>
+    
+  </header>
 
 
+<div class="entry-content clearfix" itemprop="articleBody description"><p><img class="left" src="/images/SQL-import-export.png" title="'Tool from MS SQL 2014' 250 80" ></p>
 
-<article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-  
-<h1 itemprop="name headline"><a href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/" itemprop="url">Fluent NHibernate: One-To-Many Mapping</a></h1>
-<p class="meta text-muted">
-  
+<p>When I was migrating my development database with mock data to Azure to setup my portfolio site, I faced a migration issue while using the <em>SQL Import and Export Wizard</em> provided by my MSSQL Server 2014 installation. When I ran the wizard, it failed with a message complaining that Azure do not allow insertion in table which is created without a clustered index. The fix is obivious here, I will need to alter the table creation script, each one of them.</p>
 
+<p>Thats alot of manual work for some mock data.</p>
 
+<p>Luckily for me, I found a tool called <em>SQL Database Migration Wizard</em> which will analyze your database for Azure compatibility and in my case, automatically suggest adding Clustered Index to my tables while they are moved to the Azure cloud. Fantastic!</p>
 
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T10:15:09+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
-  
-
-<span class="glyphicon glyphicon-tags"></span>&nbsp;
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/fluent-nhibernate/'>fluent nhibernate</a>
-  
-</span>
-
-
-</p>
-
-</article>
-
-
-
-<article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-  
-<h1 itemprop="name headline"><a href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/" itemprop="url">Creating a MVC Blog Engine Part 1</a></h1>
-<p class="meta text-muted">
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-08-29T16:19:49+10:00"  data-updated="true" itemprop="datePublished dateCreated">29 Aug 2014</time>
-  
-
-<span class="glyphicon glyphicon-tags"></span>&nbsp;
-<span class="categories">
-  
-    <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/mvc/'>mvc</a>, <a class='category' href='/blog/categories/mvcblog/'>mvcblog</a>, <a class='category' href='/blog/categories/project/'>project</a>
-  
-</span>
-
-
-</p>
-
-</article>
-
+<p>I would highly recommend this tool for development purpose and do be extra careful if you are moving production data. <a href="http://sqlazuremw.codeplex.com">Here is the link to the tool.</a></p>
 </div>
 
-      </div>
-      
+
+      <footer>
+        <p class="meta text-muted">
+          
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">Posted by <span class="fn" itemprop="name">Sir Hoe</span></span>
+
+          
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-03T16:49:44+10:00"  data-updated="true" itemprop="datePublished dateCreated">03 Sep 2014</time>
+          
+
+<span class="glyphicon glyphicon-tags"></span>&nbsp;
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/azure/'>azure</a>, <a class='category' href='/blog/categories/database/'>database</a>, <a class='category' href='/blog/categories/sql-server/'>sql server</a>
+  
+</span>
+
+
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/" title="Previous Post: Best practices to manipulate String in C#">&laquo; Best practices to manipulate String in C#</a></li>
+            
+            
+          </ul>
+        
+      </footer>
     </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
 
   
-    <aside class="sidebar col-md-3">
+  <aside class="sidebar col-md-3">
+    
       
-        
 <section class="panel panel-default clearfix">
 	<div class="panel-heading">
     	<h3 class="panel-title">About Sir Hoe (neo)</h3>
@@ -255,7 +233,7 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
+    <a class="list-group-item active" href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
     
     <a class="list-group-item " href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
     
@@ -341,8 +319,8 @@
 
 
 
-      
-    </aside>
+    
+  </aside>
   
 </div>
 
@@ -366,7 +344,10 @@
       var disqus_shortname = 'sirhoecode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/';
+        var disqus_url = 'http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

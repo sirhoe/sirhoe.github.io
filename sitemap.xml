@@ -3,6 +3,12 @@
   
   
   <url>
+    <loc>http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/</loc>
+    <lastmod>2014-09-03T16:49:44+10:00</lastmod>
+    <priority>0.8</priority>
+  </url>
+  
+  <url>
     <loc>http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/</loc>
     <lastmod>2014-09-02T21:31:36+10:00</lastmod>
     <priority>0.8</priority>
@@ -35,21 +41,21 @@
   
   <url>
     <loc>http://sirhoe.github.io/blog/archives/</loc>
-    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
+    <lastmod>2014-09-03T17:13:20+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   
   <url>
     <loc>http://sirhoe.github.io/</loc>
-    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
+    <lastmod>2014-09-03T17:13:20+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   
   <url>
     <loc>http://sirhoe.github.io/about/</loc>
-    <lastmod>2014-09-02T23:58:27+10:00</lastmod>
+    <lastmod>2014-09-03T17:13:20+10:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

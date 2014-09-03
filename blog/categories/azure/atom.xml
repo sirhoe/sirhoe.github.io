@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Azure | SIRHOE CODE]]></title>
+  <link href="http://sirhoe.github.io/blog/categories/azure/atom.xml" rel="self"/>
+  <link href="http://sirhoe.github.io/"/>
+  <updated>2014-09-03T17:13:20+10:00</updated>
+  <id>http://sirhoe.github.io/</id>
+  <author>
+    <name><![CDATA[Sir Hoe]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Clustered Index Issue When Migrating Database to Azure]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/"/>
+    <updated>2014-09-03T16:49:44+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure</id>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/SQL-import-export.png" title="&lsquo;Tool from MS SQL 2014&rsquo; 250 80" ></p>
+
+<p>When I was migrating my development database with mock data to Azure to setup my portfolio site, I faced a migration issue while using the <em>SQL Import and Export Wizard</em> provided by my MSSQL Server 2014 installation. When I ran the wizard, it failed with a message complaining that Azure do not allow insertion in table which is created without a clustered index. The fix is obivious here, I will need to alter the table creation script, each one of them.</p>
+
+<p>Thats alot of manual work for some mock data.</p>
+
+<p>Luckily for me, I found a tool called <em>SQL Database Migration Wizard</em> which will analyze your database for Azure compatibility and in my case, automatically suggest adding Clustered Index to my tables while they are moved to the Azure cloud. Fantastic!</p>
+
+<p>I would highly recommend this tool for development purpose and do be extra careful if you are moving production data. <a href="http://sqlazuremw.codeplex.com">Here is the link to the tool.</a></p>
+]]></content>
+  </entry>
+  
+</feed>
