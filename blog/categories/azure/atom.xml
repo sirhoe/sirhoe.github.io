@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Azure | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/azure/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-03T17:13:20+10:00</updated>
+  <updated>2014-09-08T12:42:42+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -18,7 +18,7 @@
     <link href="http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/"/>
     <updated>2014-09-03T16:49:44+10:00</updated>
     <id>http://sirhoe.github.io/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure</id>
-    <content type="html"><![CDATA[<p><img class="left" src="/images/SQL-import-export.png" title="&lsquo;Tool from MS SQL 2014&rsquo; 250 80" ></p>
+    <content type="html"><![CDATA[<p><img class="left" src="/images/SQL-import-export.png" width="250" height="80" title="&lsquo;Tool from MS SQL 2014&rsquo;" ></p>
 
 <p>When I was migrating my development database with mock data to Azure to setup my portfolio site, I faced a migration issue while using the <em>SQL Import and Export Wizard</em> provided by my MSSQL Server 2014 installation. When I ran the wizard, it failed with a message complaining that Azure do not allow insertion in table which is created without a clustered index. The fix is obivious here, I will need to alter the table creation script, each one of them.</p>
 

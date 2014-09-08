@@ -2,7 +2,7 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Best Practices to Manipulate String in C# - SIRHOE CODE</title>
+  <title>Why C# Interface? And When to Use Them. - SIRHOE CODE</title>
   <meta name="author" content="Sir Hoe">
 
   
@@ -14,15 +14,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number">
+  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="SIRHOE CODE" type="application/atom+xml">
 
   <!-- http://opengraphprotocol.org/ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number">
-  <meta property="og:title" content="Best Practices to Manipulate String in C# - SIRHOE CODE">
+  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them">
+  <meta property="og:title" content="Why C# Interface? And When to Use Them. - SIRHOE CODE">
   
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
@@ -122,45 +122,31 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T21:31:36+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-08T12:33:42+10:00"  data-updated="true" itemprop="datePublished dateCreated">08 Sep 2014</time>
         
       </p>
     
     
     <h1 class="entry-title" itemprop="name headline">
-        Best Practices to Manipulate String in C#
+        Why C# Interface? And When to Use Them.
         
     </h1>
     
   </header>
 
 
-<div class="entry-content clearfix" itemprop="articleBody description"><p>Manipulating strings is probably the most performed task in programming yet most developer are not doing it efficiently. Developers tend to use the &lsquo;+&rsquo; operand to concatenate strings because it is an easy syntax and they are not aware of better options.</p>
+<div class="entry-content clearfix" itemprop="articleBody description"><blockquote><p><strong>Q: What is a Interface?</strong></p>
 
-<!--more-->
+<p>A: It has a structure of a Class, contains all the declarations but no implementations.</p></blockquote>
 
+<p><strong>Why? What is the point of a Interface?</strong></p>
 
-<h3>In C#, use System.Text.StringBuilder</h3>
+<p>It serves as a <em>contract</em> for derived Classes. It dictates a set of public methods that implementing Classes must have, what arguments they get and what they return.</p>
 
-<p>Make it a habit to use StringBuilder to manipulate strings because the class is designed to be compiler-optimised and it will avoid memory allocation where possible.</p>
+<p><strong>Please explain in non technical jargon, When and How do we use Interface as a contract?</strong></p>
 
-<h3>String is immutable</h3>
-
-<p>Do you know that <em>String</em> type is immutable, which means that it cannot be changed after instantiated. Every time you modify an existing string, a new string is created. Now imagine if you have a loop which append to a string, the .NET runtime have to allocate memory for a new string every time the string is modified. Memory allocation is an expensive operation.</p>
-
-<h3>StringBuilder is mutable and optimised</h3>
-
-<p>To overcome the resource penalty when manipulating string during runtime, StringBuilder is introduced. It&rsquo;s operation is compiler optimised and mutable where possible.</p>
-
-<h3>When to use StringBuilder?</h3>
-
-<p>Understanding the need for easy syntax and readability, I would suggest using StringBuilder whenever you are manipulating string in a loop and performance matters.</p>
-
-<h3>For more reading</h3>
-
-<p><a href="http://msdn.microsoft.com/en-us/library/2839d5h5(v=vs.110">Namespace System.Text.StringBuilder</a>.aspx)</p>
-
-<p><a href="http://www.dotnetperls.com/stringbuilder">StringBuilder Benchmark</a></p>
+<p>When someone else is going to provide you the implementation later. You get to start working with your own code against a Interface because you already know what to pass in and get out of object’s methods which must surely exist in Classes that implement the agreed Interface.
+When you intend to swap out objects. To allow objects from different Classes to be interchanged, they have to implement the same Interface.</p>
 </div>
 
 
@@ -184,13 +170,13 @@
 
 
 
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-02T21:31:36+10:00"  data-updated="true" itemprop="datePublished dateCreated">02 Sep 2014</time>
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-08T12:33:42+10:00"  data-updated="true" itemprop="datePublished dateCreated">08 Sep 2014</time>
           
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/best-practice/'>best practice</a>, <a class='category' href='/blog/categories/c-number/'>c#</a>, <a class='category' href='/blog/categories/string/'>string</a>
+    <a class='category' href='/blog/categories/best-practice/'>best practice</a>, <a class='category' href='/blog/categories/c-number/'>c#</a>
   
 </span>
 
@@ -199,7 +185,7 @@
         
           <div class="sharing">
   
-  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/" >Tweet</a>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them/" >Tweet</a>
   
   
   
@@ -211,10 +197,8 @@
         
           <ul class="meta text-muted pager">
             
-            <li class="previous"><a href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/" title="Previous Post: Fluent NHibernate: One-To-Many Mapping">&laquo; Fluent NHibernate: One-To-Many Mapping</a></li>
+            <li class="previous"><a href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" title="Previous Post: Clustered index issue when Migrating database to Azure">&laquo; Clustered index issue when Migrating database to Azure</a></li>
             
-            
-            <li class="next"><a href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" title="Next Post: Clustered index issue when Migrating database to Azure">Clustered index issue when Migrating database to Azure &raquo;</a></li>
             
           </ul>
         
@@ -252,11 +236,11 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/2014/09/08/why-interface-and-when-to-use-them/">Why C# Interface? And When to Use Them.</a>
+    <a class="list-group-item active" href="/blog/2014/09/08/why-interface-and-when-to-use-them/">Why C# Interface? And When to Use Them.</a>
     
     <a class="list-group-item " href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
     
-    <a class="list-group-item active" href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
+    <a class="list-group-item " href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
     
     <a class="list-group-item " href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">Fluent NHibernate: One-To-Many Mapping</a>
     
@@ -364,8 +348,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/';
-        var disqus_url = 'http://sirhoe.github.io/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/';
+        var disqus_identifier = 'http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them/';
+        var disqus_url = 'http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them/';
         var disqus_script = 'embed.js';
       
     (function () {

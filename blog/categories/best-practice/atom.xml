@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Best Practice | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/best-practice/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-03T17:13:20+10:00</updated>
+  <updated>2014-09-08T12:42:42+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -12,6 +12,26 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Why C# Interface? And When to Use Them.]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them/"/>
+    <updated>2014-09-08T12:33:42+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/08/why-interface-and-when-to-use-them</id>
+    <content type="html"><![CDATA[<blockquote><p><strong>Q: What is a Interface?</strong></p>
+
+<p>A: It has a structure of a Class, contains all the declarations but no implementations.</p></blockquote>
+
+<p><strong>Why? What is the point of a Interface?</strong></p>
+
+<p>It serves as a <em>contract</em> for derived Classes. It dictates a set of public methods that implementing Classes must have, what arguments they get and what they return.</p>
+
+<p><strong>Please explain in non technical jargon, When and How do we use Interface as a contract?</strong></p>
+
+<p>When someone else is going to provide you the implementation later. You get to start working with your own code against a Interface because you already know what to pass in and get out of object’s methods which must surely exist in Classes that implement the agreed Interface.
+When you intend to swap out objects. To allow objects from different Classes to be interchanged, they have to implement the same Interface.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Best Practices to Manipulate String in C#]]></title>
