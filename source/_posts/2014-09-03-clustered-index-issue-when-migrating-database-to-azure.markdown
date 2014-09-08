@@ -6,7 +6,7 @@ comments: true
 categories: [Azure, SQL Server, Database]
 ---
 
-{% img left /images/SQL-import-export.png 'Tool from MS SQL 2014' 250 80 %}
+{% img left /images/SQL-import-export.png 250 80 'Tool from MS SQL 2014' %}
 
 When I was migrating my development database with mock data to Azure to setup my portfolio site, I faced a migration issue while using the *SQL Import and Export Wizard* provided by my MSSQL Server 2014 installation. When I ran the wizard, it failed with a message complaining that Azure do not allow insertion in table which is created without a clustered index. The fix is obivious here, I will need to alter the table creation script, each one of them.
 
