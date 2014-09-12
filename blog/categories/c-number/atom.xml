@@ -4,7 +4,7 @@
   <title><![CDATA[Category: C# | SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/blog/categories/c-number/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-08T12:42:42+10:00</updated>
+  <updated>2014-09-12T17:13:27+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -12,6 +12,45 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Check for Null to Avoid Crashes]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes/"/>
+    <updated>2014-09-12T17:01:14+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes</id>
+    <content type="html"><![CDATA[<p>NullPointerException is one of the most common error to crash an application. Everyone of us made this same mistake, the code runs fine although we did not check for null explicitly before calling <em>toString()</em> when we first code it because all the properties are instantiated during creation. It slips our mind and we checked in the code.</p>
+
+<pre><code>Uri myWebAddress = new Uri(“http://sirhoe.github.io”);
+    …  //some flow
+Console.Writeline(myWebAddress.toString());
+</code></pre>
+
+<p>After awhile, someone else modified the code and now the object’s properties are not instantiated immediate after creation.</p>
+
+<pre><code>Uri myWebAddress = new Uri();
+    …  //some flow
+Console.Writeline(myWebAddress.toString()); //throws exception
+</code></pre>
+
+<p>Now it crashes, because the <em>System.Net.Uri</em> object is null. This is just one example and there are many scenarios where similar error can happen.</p>
+
+<!--more-->
+
+
+<h3>What should we do?</h3>
+
+<p>Make it a habit to check for null and I feel that the best and most readable way of doing it looks like this.</p>
+
+<pre><code>(myWebAddress ?? string.Empty).toString());
+</code></pre>
+
+<p>You will have to make adjustment when adopting this but the whole idea is to make use of the “two question marks” to quickly check for null and give it a default value if its null.</p>
+
+<p>Keep this best practice close to your heart and it will save you a lot of embarrassment down the road.</p>
+
+<p>I hope you find this useful.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Why C# Interface? And When to Use Them.]]></title>

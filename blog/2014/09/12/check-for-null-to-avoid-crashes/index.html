@@ -2,10 +2,10 @@
 <html class="no-js" lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Category: Sql Server - SIRHOE CODE</title>
+  <title>Check for Null to Avoid Crashes - SIRHOE CODE</title>
   <meta name="author" content="Sir Hoe">
 
-  <meta name="description" content="Category: sql server">
+  
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -14,16 +14,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://sirhoe.github.io/blog/categories/sql-server">
+  <link rel="canonical" href="http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes">
   <link href="/favicon.png" type="image/png" rel="icon">
   <link href="/atom.xml" rel="alternate" title="SIRHOE CODE" type="application/atom+xml">
 
   <!-- http://opengraphprotocol.org/ -->
   <meta name="twitter:card" content="summary_large_image">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="http://sirhoe.github.io/blog/categories/sql-server">
-  <meta property="og:title" content="Category: Sql Server - SIRHOE CODE">
-  <meta property="og:description" content="Category: sql server">
+  <meta property="og:url" content="http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes">
+  <meta property="og:title" content="Check for Null to Avoid Crashes - SIRHOE CODE">
+  
 
   <script src="/javascripts/libs/jquery/jquery-2.0.3.min.js"></script>
 <link href='http://fonts.googleapis.com/css?family=Droid+Sans' rel='stylesheet' type='text/css'>
@@ -64,13 +64,13 @@
 
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav">
-                <li >
+                <li class="active">
                     <a rel="index" href="/">Blog</a>
                 </li>
                 <li >
                     <a href="/about">About</a>
                 </li>
-		<li class="active">
+		<li >
                     <a href="/blog/archives">Archives</a>
                 </li>
             </ul>
@@ -100,74 +100,142 @@
       <div id="main" class="container">
         <div id="content">
           <div class="row">
-  <div class="page-content col-md-9">
-    <article role="article">
+  <div class="page-content col-md-9" itemscope itemtype="http://schema.org/Blog">
+    <meta itemprop="name" content="SIRHOE CODE" />
+    <meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
+    <meta itemprop="url" content="http://sirhoe.github.io" />
+    <article class="hentry" role="article" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
       
-        <header class="page-header">
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-12T17:01:14+10:00"  data-updated="true" itemprop="datePublished dateCreated">12 Sep 2014</time>
+        
+      </p>
+    
+    
+    <h1 class="entry-title" itemprop="name headline">
+        Check for Null to Avoid Crashes
+        
+    </h1>
+    
+  </header>
+
+
+<div class="entry-content clearfix" itemprop="articleBody description"><p>NullPointerException is one of the most common error to crash an application. Everyone of us made this same mistake, the code runs fine although we did not check for null explicitly before calling <em>toString()</em> when we first code it because all the properties are instantiated during creation. It slips our mind and we checked in the code.</p>
+
+<pre><code>Uri myWebAddress = new Uri(“http://sirhoe.github.io”);
+    …  //some flow
+Console.Writeline(myWebAddress.toString());
+</code></pre>
+
+<p>After awhile, someone else modified the code and now the object’s properties are not instantiated immediate after creation.</p>
+
+<pre><code>Uri myWebAddress = new Uri();
+    …  //some flow
+Console.Writeline(myWebAddress.toString()); //throws exception
+</code></pre>
+
+<p>Now it crashes, because the <em>System.Net.Uri</em> object is null. This is just one example and there are many scenarios where similar error can happen.</p>
+
+<!--more-->
+
+
+<h3>What should we do?</h3>
+
+<p>Make it a habit to check for null and I feel that the best and most readable way of doing it looks like this.</p>
+
+<pre><code>(myWebAddress ?? string.Empty).toString());
+</code></pre>
+
+<p>You will have to make adjustment when adopting this but the whole idea is to make use of the “two question marks” to quickly check for null and give it a default value if its null.</p>
+
+<p>Keep this best practice close to your heart and it will save you a lot of embarrassment down the road.</p>
+
+<p>I hope you find this useful.</p>
+</div>
+
+
+      <footer>
+        <p class="meta text-muted">
           
+  
+
+<span class="glyphicon glyphicon-user"></span> <span class="byline author vcard" itemprop="author" itemscope itemtype="http://schema.org/Person">Posted by <span class="fn" itemprop="name">Sir Hoe</span></span>
+
           
-            <h1 class="entry-title">
-              Category: Sql Server
-              
-            </h1>
+
+
+
+
+
+
+
+
+
+
+
+
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-12T17:01:14+10:00"  data-updated="true" itemprop="datePublished dateCreated">12 Sep 2014</time>
           
-        </header>
-      
-      <div class="entry-content">
-        <div id="blog-archives" class="category" itemscope itemtype="http://schema.org/Blog">
-<meta itemprop="name" content="SIRHOE CODE" />
-<meta itemprop="description" content="This is a place for me share what I've learnt and connect with people who are interested in writing beautiful code." />
-<meta itemprop="url" content="http://sirhoe.github.io" />
-
-
-
-  
-  <h2>2014</h2>
-
-<article class="page-header" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
-  
-<h1 itemprop="name headline"><a href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/" itemprop="url">Clustered Index Issue When Migrating Database to Azure</a></h1>
-<p class="meta text-muted">
-  
-
-
-
-
-
-
-
-
-
-
-
-
-<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-03T16:49:44+10:00"  data-updated="true" itemprop="datePublished dateCreated">03 Sep 2014</time>
-  
 
 <span class="glyphicon glyphicon-tags"></span>&nbsp;
 <span class="categories">
   
-    <a class='category' href='/blog/categories/azure/'>azure</a>, <a class='category' href='/blog/categories/database/'>database</a>, <a class='category' href='/blog/categories/sql-server/'>sql server</a>
+    <a class='category' href='/blog/categories/best-practice/'>best practice</a>, <a class='category' href='/blog/categories/c-number/'>c#</a>
   
 </span>
 
 
-</p>
-
-</article>
-
+        </p>
+        
+          <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes/" data-via="" data-counturl="http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes/" >Tweet</a>
+  
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
 </div>
 
-      </div>
-      
+        
+        
+          <ul class="meta text-muted pager">
+            
+            <li class="previous"><a href="/blog/2014/09/08/why-interface-and-when-to-use-them/" title="Previous Post: Why C# Interface? and when to use them.">&laquo; Why C# Interface? and when to use them.</a></li>
+            
+            
+          </ul>
+        
+      </footer>
     </article>
+    
+      <section>
+        <h1>Comments</h1>
+        <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+      </section>
     
   </div>
 
   
-    <aside class="sidebar col-md-3">
+  <aside class="sidebar col-md-3">
+    
       
-        
 <section class="panel panel-default clearfix">
 	<div class="panel-heading">
     	<h3 class="panel-title">About Sir Hoe (neo)</h3>
@@ -187,7 +255,7 @@
   
   <div id="recent_posts" class="list-group">
     
-    <a class="list-group-item " href="/blog/2014/09/12/check-for-null-to-avoid-crashes/">Check for Null to Avoid Crashes</a>
+    <a class="list-group-item active" href="/blog/2014/09/12/check-for-null-to-avoid-crashes/">Check for Null to Avoid Crashes</a>
     
     <a class="list-group-item " href="/blog/2014/09/08/why-interface-and-when-to-use-them/">Why C# Interface? And When to Use Them.</a>
     
@@ -273,8 +341,8 @@
 
 
 
-      
-    </aside>
+    
+  </aside>
   
 </div>
 
@@ -298,7 +366,10 @@
       var disqus_shortname = 'sirhoecode';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes/';
+        var disqus_url = 'http://sirhoe.github.io/blog/2014/09/12/check-for-null-to-avoid-crashes/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;

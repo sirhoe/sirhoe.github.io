@@ -126,6 +126,62 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-12T17:01:14+10:00"  data-updated="true" itemprop="datePublished dateCreated">12 Sep 2014</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title" itemprop="name headline"><a href="/blog/2014/09/12/check-for-null-to-avoid-crashes/" itemprop="url">Check for Null to Avoid Crashes</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>NullPointerException is one of the most common error to crash an application. Everyone of us made this same mistake, the code runs fine although we did not check for null explicitly before calling <em>toString()</em> when we first code it because all the properties are instantiated during creation. It slips our mind and we checked in the code.</p>
+
+<pre><code>Uri myWebAddress = new Uri(“http://sirhoe.github.io”);
+    …  //some flow
+Console.Writeline(myWebAddress.toString());
+</code></pre>
+
+<p>After awhile, someone else modified the code and now the object’s properties are not instantiated immediate after creation.</p>
+
+<pre><code>Uri myWebAddress = new Uri();
+    …  //some flow
+Console.Writeline(myWebAddress.toString()); //throws exception
+</code></pre>
+
+<p>Now it crashes, because the <em>System.Net.Uri</em> object is null. This is just one example and there are many scenarios where similar error can happen.</p>
+
+</div>
+  
+  
+    <footer>
+      <a class="btn btn-default" href="/blog/2014/09/12/check-for-null-to-avoid-crashes/">Read on &rarr;</a>
+    </footer>
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-08T12:33:42+10:00"  data-updated="true" itemprop="datePublished dateCreated">08 Sep 2014</time>
         
       </p>
@@ -443,6 +499,8 @@ When you intend to swap out objects. To allow objects from different Classes to 
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/09/12/check-for-null-to-avoid-crashes/">Check for Null to Avoid Crashes</a>
+    
     <a class="list-group-item " href="/blog/2014/09/08/why-interface-and-when-to-use-them/">Why C# Interface? And When to Use Them.</a>
     
     <a class="list-group-item " href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
@@ -450,8 +508,6 @@ When you intend to swap out objects. To allow objects from different Classes to 
     <a class="list-group-item " href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
     
     <a class="list-group-item " href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">Fluent NHibernate: One-To-Many Mapping</a>
-    
-    <a class="list-group-item " href="/blog/2014/08/29/creating-a-mvc-blog-engine-part-1/">Creating a MVC Blog Engine Part 1</a>
     
   </div>
 </section>
