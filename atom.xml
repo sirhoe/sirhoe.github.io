@@ -4,7 +4,7 @@
   <title><![CDATA[SIRHOE CODE]]></title>
   <link href="http://sirhoe.github.io/atom.xml" rel="self"/>
   <link href="http://sirhoe.github.io/"/>
-  <updated>2014-09-12T17:13:27+10:00</updated>
+  <updated>2014-09-23T16:54:44+10:00</updated>
   <id>http://sirhoe.github.io/</id>
   <author>
     <name><![CDATA[Sir Hoe]]></name>
@@ -12,6 +12,39 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Best Practice to Catch and Rethrow Exception]]></title>
+    <link href="http://sirhoe.github.io/blog/2014/09/23/best-practice-to-catch-and-rethrow-exception/"/>
+    <updated>2014-09-23T16:46:20+10:00</updated>
+    <id>http://sirhoe.github.io/blog/2014/09/23/best-practice-to-catch-and-rethrow-exception</id>
+    <content type="html"><![CDATA[<p>Some developers made this mistake when they catch an Exception and later rethrow them.</p>
+
+<pre><code>try {
+  // something went wrong here
+} catch (Exception ex)
+{
+    throw ex; //mistake here
+}
+</code></pre>
+
+<p>How many of you do this? Do you know what is wrong here?</p>
+
+<p>When you code <em>throw ex;</em> you are essentially throwing an except from this point onwards, discarding the original exception and information that you <em>catch</em> earlier. The trace from this point onwards would only go to where you are issuing the <em>throw ex;</em> statement.</p>
+
+<p><strong>What is the correct statement then?</strong></p>
+
+<pre><code>try {
+  // something went wrong here
+} catch (Exception ex)
+{
+    throw;
+}
+</code></pre>
+
+<p>Hope this helps!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Check for Null to Avoid Crashes]]></title>

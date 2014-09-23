@@ -126,6 +126,67 @@
 
 
 
+<span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-23T16:46:20+10:00"  data-updated="true" itemprop="datePublished dateCreated">23 Sep 2014</time>
+        
+      </p>
+    
+    
+      <h1 class="entry-title" itemprop="name headline"><a href="/blog/2014/09/23/best-practice-to-catch-and-rethrow-exception/" itemprop="url">Best Practice to Catch and Rethrow Exception</a></h1>
+    
+  </header>
+
+
+  <div class="entry-content clearfix" itemprop="articleBody description"><p>Some developers made this mistake when they catch an Exception and later rethrow them.</p>
+
+<pre><code>try {
+  // something went wrong here
+} catch (Exception ex)
+{
+    throw ex; //mistake here
+}
+</code></pre>
+
+<p>How many of you do this? Do you know what is wrong here?</p>
+
+<p>When you code <em>throw ex;</em> you are essentially throwing an except from this point onwards, discarding the original exception and information that you <em>catch</em> earlier. The trace from this point onwards would only go to where you are issuing the <em>throw ex;</em> statement.</p>
+
+<p><strong>What is the correct statement then?</strong></p>
+
+<pre><code>try {
+  // something went wrong here
+} catch (Exception ex)
+{
+    throw;
+}
+</code></pre>
+
+<p>Hope this helps!</p>
+</div>
+  
+  
+
+
+        </article>
+      
+      
+        <article class="post" itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          
+  <header class="page-header">
+    
+      <p class="meta text-muted text-uppercase">
+        
+
+
+
+
+
+
+
+
+
+
+
+
 <span class="glyphicon glyphicon-calendar"></span> <time datetime="2014-09-12T17:01:14+10:00"  data-updated="true" itemprop="datePublished dateCreated">12 Sep 2014</time>
         
       </p>
@@ -499,6 +560,8 @@ When you intend to swap out objects. To allow objects from different Classes to 
   
   <div id="recent_posts" class="list-group">
     
+    <a class="list-group-item " href="/blog/2014/09/23/best-practice-to-catch-and-rethrow-exception/">Best Practice to Catch and Rethrow Exception</a>
+    
     <a class="list-group-item " href="/blog/2014/09/12/check-for-null-to-avoid-crashes/">Check for Null to Avoid Crashes</a>
     
     <a class="list-group-item " href="/blog/2014/09/08/why-interface-and-when-to-use-them/">Why C# Interface? And When to Use Them.</a>
@@ -506,8 +569,6 @@ When you intend to swap out objects. To allow objects from different Classes to 
     <a class="list-group-item " href="/blog/2014/09/03/clustered-index-issue-when-migrating-database-to-azure/">Clustered Index Issue When Migrating Database to Azure</a>
     
     <a class="list-group-item " href="/blog/2014/09/02/best-practices-to-manipulate-string-in-c-number/">Best Practices to Manipulate String in C#</a>
-    
-    <a class="list-group-item " href="/blog/2014/09/02/fluentnhibernate-one-to-many-mapping/">Fluent NHibernate: One-To-Many Mapping</a>
     
   </div>
 </section>
